@@ -37,14 +37,6 @@ public class BoardController {
 		return mav;
 	}
 
-	// 02_01. 게시글 작성화면
-	@RequestMapping(value = "write.do", method = RequestMethod.GET)
-	public ModelAndView write(BoardVO boardVo) {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("board/write");
-		return mav;
-	}
-
 	// 02_02. 게시글 작성처리
 	@PostMapping(value = "insert.do")
 	public String insert(@RequestBody BoardVO boardVo) throws Exception {
@@ -53,28 +45,15 @@ public class BoardController {
 		return "redirect:list.do";
 	}
 
-	// 03. 게시글 상세내용 조회, 게시글 조회수 증가 처리
-	@RequestMapping(value = "view.do", method = RequestMethod.GET)
-	public ModelAndView view(@RequestParam("bno") int bno, HttpServletRequest request) throws Exception {
-		HttpSession session = request.getSession();
-		// 조회수 증가 처리
-		boardService.increaseViewcnt(bno, session);
-		// 모델(데이터)+뷰(화면)를 함께 전달하는 객체
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("vo",boardService.View(bno));
-		mav.setViewName("board/view");
-		return mav;
-	}
-
 	// 04. 게시글 수정
-	@RequestMapping(value="view.do", method = RequestMethod.POST)
+	@RequestMapping(value="view.do", method = RequestMethod.PUT)
 	public String update(@ModelAttribute BoardVO vo) throws Exception {
 		boardService.updateDao(vo);
 		return "redirect:view.do?bno="+vo.getBno();
 	} 
 
 	// 05. 게시글 삭제
-	@RequestMapping(value ="delete.do", method = RequestMethod.GET)
+	@RequestMapping(value ="delete.do", method = RequestMethod.DELETE)
 	public String delete(@RequestParam("bno") int bno) throws Exception {
 		boardService.deleteService(bno);
 		return "redirect:list.do";
