@@ -8,7 +8,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript"
+<<<<<<< HEAD
 	src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+=======
+	src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+>>>>>>> f3fbb4b8ef93eb5aad0977717807a1a5d3c0d3b4
 <title>게시글 목록</title>
 <script>
 	$(document).ready(function() {
@@ -18,6 +22,7 @@
 		});
 	});
 </script>
+<<<<<<< HEAD
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link href="navbar-fixed-top.css" rel="stylesheet">
@@ -116,6 +121,10 @@
 			style="padding-top: 5%; margin-top: 2%"></textarea>
 	</div>
 
+=======
+</head>
+<body>
+>>>>>>> f3fbb4b8ef93eb5aad0977717807a1a5d3c0d3b4
 	<h2>게시글 목록</h2>
 	<button type="button" id="btnWrite">글쓰기</button>
 	<table border="1" width="600px">

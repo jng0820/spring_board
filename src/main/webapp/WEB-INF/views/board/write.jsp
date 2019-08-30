@@ -10,6 +10,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
 <title>게시글 작성</title>
 <script>
+<<<<<<< HEAD
 
 	$(document).ready(function() {
 		$("#btnSave").click(function() {
@@ -31,6 +32,27 @@
 		$("#btnCancel").click(function() {
 			location.href = "list.do";
 		});
+=======
+	$(document).ready(function() {
+		$("#btnCancel").click(function() {
+			location.href = "list.do";
+		});
+		$("#btnSave").click(function() {
+	       var sendInfo = {
+	           title : $("#Location").val(),
+	           content : $("#content").val(),
+	           writer: $("#writer").val()
+	       };
+
+			$.ajax({
+			    url: 'insert.do',
+			    type: 'post',
+			    dataType: 'json',
+			    contentType: 'application/json',
+			    data: JSON.stringify(sendInfo)
+			});
+		});
+>>>>>>> f3fbb4b8ef93eb5aad0977717807a1a5d3c0d3b4
 	});
 </script>
 </head>
