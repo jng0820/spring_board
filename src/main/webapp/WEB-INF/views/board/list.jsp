@@ -78,8 +78,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link href="navbar-fixed-top.css" rel="stylesheet">
 </head>
-<body>
-
+<body bgcolor="#ffc90e">
 	<!-- Fixed navbar -->
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
@@ -124,10 +123,10 @@
 			</form>
 		</div>
 	</nav>
-	
+	<div style="height:100%; background-color:#ffc90e">
 	<!-- 대화들 -->
 	<!-- <div id="boardlist" style="margin-top: 18%;"> -->
-	<div id="boardlist" style="margin-top: 18%; background-color: #ffc90e;">
+	<div id="boardlist" style="margin-top: 15%; background-color: #ffc90e;">
 		<c:forEach items="${list}" var="boardVO">
 			<!-- <div class="container" style="margin-top: 2%; border: 1px solid #e0e0e0; padding:2%"> -->
 			<div class="container" style="margin-top: 2%; border-radius: 15px; background-color: #ffffff; box-shadow: 0px 5px 10px 0px #555555; padding:2%">
@@ -158,10 +157,18 @@
 			</div>
 		</c:forEach>
 	</div>
+	</div>
 </body>
 <style>
 textarea {
 	width: 100%;
+	resize: none;
 }
+input[readonly]{
+  background-color:transparent;
+  border: 0;
+  font-size: 1em;
+}
+
 </style>
 </html>
