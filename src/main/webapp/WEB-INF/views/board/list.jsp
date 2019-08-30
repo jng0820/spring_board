@@ -8,21 +8,72 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript"
-<<<<<<< HEAD
-	src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-=======
 	src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
->>>>>>> f3fbb4b8ef93eb5aad0977717807a1a5d3c0d3b4
 <title>게시글 목록</title>
 <script>
 	$(document).ready(function() {
-		$("#btnWrite").click(function() {
-			// 페이지 주소 변경(이동)
-			location.href = "write.do";
+		$("#btnCancel").click(function() {
+			location.href = "list.do";
+		});
+// 		$("#btnDel").click(function(){
+// 			if(confirm("삭제하시겠습니까?")){
+// 				location.href = "delete.do?bno=" +$("#bno").val();
+// 				alert("삭제되었습니다.");
+// 			}
+// 	    });
+		$("#btnSave").click(function() {
+			var sendInfo = {
+				title : $("#title").val(),
+				content : $("#content").val(),
+				writer : $("#writer").val()
+			};
+			if(sendInfo.writer == ""){
+				alert("이름을 입력해주세요");
+				return;
+			}
+			if(sendInfo.content == ""){
+				alert("내용을 입력해주세요");
+				return;
+			}
+			if(sendInfo.title == ""){
+				alert("위치를 입력해주세요");
+				return;
+			}
+			console.log(sendInfo);
+			$.ajax({
+				url : 'view.do',
+				type : 'post',
+				dataType : 'json',
+				contentType : 'application/json',
+				data : JSON.stringify(sendInfo),
+				success : function() {
+					window.location.reload(1);
+				}
+			});
 		});
 	});
+	setInterval(function() {
+		$('#boardlist').load(document.URL + ' #boardlist ');
+	}, 3000);
+	function delbtn(bno){
+		if(confirm("삭제하시겠습니까?")){
+			var sendInfo = {
+				bno : bno
+			}
+			$.ajax({
+				  url: 'delete.do',
+				  method: 'DELETE',
+				  dataType : 'json',
+				  contentType : 'application/json',
+				  data: JSON.stringify(sendInfo),
+				  success:function(){
+					  alert("삭제되었습니다.")
+					  window.location.reload(1);
+				  }
+				})
+		}
+	}
 </script>
-<<<<<<< HEAD
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link href="navbar-fixed-top.css" rel="stylesheet">
@@ -40,111 +91,77 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Hanwitter</a>
+				<a class="navbar-brand" href="#" style="color: black">Hanwitter</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#contact">Contact</a></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
-							<span class="caret"></span>
-					</a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li class="divider"></li>
-							<li class="dropdown-header">Nav header</li>
-							<li><a href="#">Separated link</a></li>
-							<li><a href="#">One more separated link</a></li>
-						</ul></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="../navbar/">Default</a></li>
-					<li><a href="../navbar-static-top/">Static top</a></li>
-					<li class="active"><a href="./">Fixed top <span
-							class="sr-only">(current)</span></a></li>
 				</ul>
 			</div>
-			<!--/.nav-collapse -->
-		</div>
-	</nav>
 
-	<div class="container" style="margin-top: 5%">
-		<div class="jumbotron">
-			<form class="form-inline">
+			<!-- 입력폼 -->
+			<form class="form-inline" id="form1" method="" action=""
+				style="margin-top: 2%;">
 				<div class="col-md-4">
 					<div class="form-group">
 						<label for="exampleInputName2">Name</label> <input type="text"
-							class="form-control" id="exampleInputName2" placeholder="전우형">
+							class="form-control" id="writer" placeholder=" 이름이 뭐에요?">
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
 						<label for="exampleInputEmail2">Location</label> <input
-							type="text" class="form-control" id="exampleInputEmail2"
-							placeholder="서울">
+							type="text" class="form-control" id="title"
+							placeholder=" 위치가 어디세요?">
 					</div>
 				</div>
-				<!-- 				<div class="col-md-1"> -->
-				<button type="submit" class="btn btn-default">등록</button>
-				<!-- 				</div> -->
+				
+				<button id="btnSave" class="btn btn-warning pull-right">등록</button>
+
+				<textarea class="form-class" rows="3"
+					style="margin-top: 2%" id="content"
+					placeholder=" 할 말 있어요?"></textarea>
 			</form>
-
-			<textarea class="form-control" rows="3"
-				style="padding-top: 5%; margin-top: 2%"></textarea>
 		</div>
-	</div>
-
-	<div class="container" style="margin-top: 5%">
-		<form class="form-inline">
-			<div class="col-md-4">
-				<div class="form-group">
-					<label for="exampleInputName2">Name</label> <input type="text"
-						class="form-control" id="exampleInputName2" placeholder="전우형">
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="form-group">
-					<label for="exampleInputEmail2">Location</label> <input type="text"
-						class="form-control" id="exampleInputEmail2" placeholder="서울">
-				</div>
-			</div>
-			<!-- 				<div class="col-md-1"> -->
-			<button type="submit" class="btn btn-default">등록</button>
-			<!-- 				</div> -->
-		</form>
-
-		<textarea class="form-control" rows="3"
-			style="padding-top: 5%; margin-top: 2%"></textarea>
-	</div>
-
-=======
-</head>
-<body>
->>>>>>> f3fbb4b8ef93eb5aad0977717807a1a5d3c0d3b4
-	<h2>게시글 목록</h2>
-	<button type="button" id="btnWrite">글쓰기</button>
-	<table border="1" width="600px">
-		<tr>
-			<th>번호</th>
-			<th>제목</th>
-			<th>이름</th>
-			<th>작성일</th>
-			<th>조회수</th>
-		</tr>
+	</nav>
+	
+	<!-- 대화들 -->
+	<!-- <div id="boardlist" style="margin-top: 18%;"> -->
+	<div id="boardlist" style="margin-top: 18%; background-color: #ffc90e;">
 		<c:forEach items="${list}" var="boardVO">
-			<tr>
-				<td>${boardVO.bno}</td>
-				<td><a href="/example/board/view.do?bno=${boardVO.bno}">${boardVO.title}</a></td>
-				<td>${boardVO.writer}</td>
-				<td>${boardVO.regdate}</td>
-				<td>${boardVO.viewcnt}</td>
-			</tr>
+			<!-- <div class="container" style="margin-top: 2%; border: 1px solid #e0e0e0; padding:2%"> -->
+			<div class="container" style="margin-top: 2%; border-radius: 15px; background-color: #ffffff; box-shadow: 0px 5px 10px 0px #555555; padding:2%">
+				<form class="form-inline" action="">
+					<div class="col-md-2" id="bno" value = ${boardVO.bno }>
+						<span>글 번호 : ${boardVO.bno}</span><br>
+					</div>
+					<div class="col-md-4">
 
+						<div class="form-group">
+							<label for="exampleInputName2">작성자</label> <input type="text"
+								class="form-control" style="background-color: #ffffff; border: 0px solid #ffffff" id="exampleInputName2"
+								value="@ ${boardVO.writer}" readonly="readonly">
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div class="form-group">
+							<label for="exampleInputEmail2">Location</label> <input
+								type="text" class="form-control" style="background-color: #ffffff; border: 0px solid #ffffff" id="exampleInputEmail2"
+								value="${boardVO.title}" readonly="readonly">
+						</div>
+
+					</div>
+					<button onClick="delbtn(${boardVO.bno})" class="btn btn-warning pull-right" style="margin-bottom:1%">삭제</button>
+				</form>
+				<textarea class="form-control" rows="2"
+					style="margin-top: 2%; background-color: #ffffff; border: 0px solid #ffffff" readonly="readonly">${boardVO.content} </textarea>
+			</div>
 		</c:forEach>
-	</table>
+	</div>
 </body>
+<style>
+textarea {
+	width: 100%;
+}
+</style>
 </html>

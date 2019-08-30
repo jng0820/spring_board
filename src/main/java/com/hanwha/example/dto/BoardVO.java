@@ -7,9 +7,17 @@ public class BoardVO {
 	private String title; // 게시글 제목
 	private String content; // 게시글 내용
 	private String writer; // 게시글 작성자
+	private String pwd;
 	private Date regdate; // 게시글 작성일자 util.Date
 	private int viewcnt; // 게시글 조회수
 	
+	
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
 	public int getBno() {
 		return bno;
 	}

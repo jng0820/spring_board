@@ -5,17 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<<<<<<< HEAD
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-	location.replace("/example/board/list.do");
-=======
 <script type ="text/javascript">
 $(document).ready(function() {
 	location.replace("/localhost:8080/example/board/list.do");
->>>>>>> f3fbb4b8ef93eb5aad0977717807a1a5d3c0d3b4
 });
 </script>
 </head>

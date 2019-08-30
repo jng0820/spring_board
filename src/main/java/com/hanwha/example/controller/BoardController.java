@@ -38,11 +38,11 @@ public class BoardController {
 	}
 
 	// 02_02. 게시글 작성처리
-	@PostMapping(value = "insert.do")
-	public String insert(@RequestBody BoardVO boardVo) throws Exception {
+	@PostMapping(value = "view.do")
+	public BoardVO insert(@RequestBody BoardVO boardVo) throws Exception {
 		System.out.println(boardVo);
 		boardService.writeArticle(boardVo);
-		return "redirect:list.do";
+		return boardVo;
 	}
 
 	// 04. 게시글 수정
@@ -54,7 +54,9 @@ public class BoardController {
 
 	// 05. 게시글 삭제
 	@RequestMapping(value ="delete.do", method = RequestMethod.DELETE)
-	public String delete(@RequestParam("bno") int bno) throws Exception {
+	public String delete(@RequestBody BoardVO boardVo) throws Exception {
+		int bno = boardVo.getBno();
+		System.out.println(bno);
 		boardService.deleteService(bno);
 		return "redirect:list.do";
 	}

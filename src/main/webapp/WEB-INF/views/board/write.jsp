@@ -10,29 +10,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
 <title>게시글 작성</title>
 <script>
-<<<<<<< HEAD
 
-	$(document).ready(function() {
-		$("#btnSave").click(function() {
-			if($("#title").val()=="") {
-				alert("제목을 입력하세요");
-				return false;
-			}
-			if($("#content").val()=="") {
-				alert("내용을 입력하세요");
-				return false;
-			}
-			if($("#writer").val()==""){
-				alert("이름을 입력하세요");
-				return false;
-			}
-//			폼에 입력한 데이터를 서버로 전송
-			$("#form1").submit();
-		});
-		$("#btnCancel").click(function() {
-			location.href = "list.do";
-		});
-=======
 	$(document).ready(function() {
 		$("#btnCancel").click(function() {
 			location.href = "list.do";
@@ -45,14 +23,13 @@
 	       };
 
 			$.ajax({
-			    url: 'insert.do',
+			    url: 'view.do',
 			    type: 'post',
 			    dataType: 'json',
 			    contentType: 'application/json',
 			    data: JSON.stringify(sendInfo)
 			});
 		});
->>>>>>> f3fbb4b8ef93eb5aad0977717807a1a5d3c0d3b4
 	});
 </script>
 </head>

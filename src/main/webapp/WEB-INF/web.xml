@@ -13,16 +13,12 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-<<<<<<< HEAD
-	
+
 	<!-- 첫 시작 페이지 고정 -->
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 	
-=======
-
->>>>>>> f3fbb4b8ef93eb5aad0977717807a1a5d3c0d3b4
 	<!-- Processes application requests -->
 	<servlet>
 		<servlet-name>appServlet</servlet-name>
