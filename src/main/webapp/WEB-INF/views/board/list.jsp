@@ -54,7 +54,7 @@
 	});
 	setInterval(function() {
 		$('#boardlist').load(document.URL + ' #boardlist ');
-	}, 3000);
+	}, 10000);
 	function delbtn(bno){
 		if(confirm("삭제하시겠습니까?")){
 			var sendInfo = {
@@ -80,7 +80,7 @@
 </head>
 <body bgcolor="#ffc90e">
 	<!-- Fixed navbar -->
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<nav class="navbar navbar-default navbar-fixed-top" style="background-color:#ffffff">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
@@ -123,13 +123,12 @@
 			</form>
 		</div>
 	</nav>
-	<div style="height:100%; background-color:#ffc90e">
 	<!-- 대화들 -->
 	<!-- <div id="boardlist" style="margin-top: 18%;"> -->
-	<div id="boardlist" style="margin-top: 15%; background-color: #ffc90e;">
+	<div id="boardlist" style="margin-top: 13.5%; background-color: #ffc90e;">
 		<c:forEach items="${list}" var="boardVO">
 			<!-- <div class="container" style="margin-top: 2%; border: 1px solid #e0e0e0; padding:2%"> -->
-			<div class="container" style="margin-top: 2%; border-radius: 15px; background-color: #ffffff; box-shadow: 0px 5px 10px 0px #555555; padding:2%">
+			<div class="container" style="margin-top: 2%; border-radius: 15px;  padding-top:10px; background-color: #ffffff; box-shadow: 0px 5px 10px 0px #555555; padding:2%">
 				<form class="form-inline" action="">
 					<div class="col-md-2" id="bno" value = ${boardVO.bno }>
 						<span>글 번호 : ${boardVO.bno}</span><br>
@@ -156,7 +155,6 @@
 					style="margin-top: 2%; background-color: #ffffff; border: 0px solid #ffffff" readonly="readonly">${boardVO.content} </textarea>
 			</div>
 		</c:forEach>
-	</div>
 	</div>
 </body>
 <style>
