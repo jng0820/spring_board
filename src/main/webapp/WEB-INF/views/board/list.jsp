@@ -83,9 +83,9 @@
 							placeholder="서울">
 					</div>
 				</div>
-<!-- 				<div class="col-md-1"> -->
-					<button type="submit" class="btn btn-default">등록</button>
-<!-- 				</div> -->
+				<!-- 				<div class="col-md-1"> -->
+				<button type="submit" class="btn btn-default">등록</button>
+				<!-- 				</div> -->
 			</form>
 
 			<textarea class="form-control" rows="3"
@@ -94,23 +94,26 @@
 	</div>
 
 	<div class="container" style="margin-top: 5%">
-		<div>
-			<form class="form-inline">
+		<form class="form-inline">
+			<div class="col-md-4">
 				<div class="form-group">
 					<label for="exampleInputName2">Name</label> <input type="text"
-						class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+						class="form-control" id="exampleInputName2" placeholder="전우형">
 				</div>
+			</div>
+			<div class="col-md-6">
 				<div class="form-group">
-					<label for="exampleInputEmail2">Email</label> <input type="email"
-						class="form-control" id="exampleInputEmail2"
-						placeholder="jane.doe@example.com">
+					<label for="exampleInputEmail2">Location</label> <input type="text"
+						class="form-control" id="exampleInputEmail2" placeholder="서울">
 				</div>
-				<button type="submit" class="btn btn-default">Send
-					invitation</button>
-			</form>
+			</div>
+			<!-- 				<div class="col-md-1"> -->
+			<button type="submit" class="btn btn-default">등록</button>
+			<!-- 				</div> -->
+		</form>
 
-			<textarea class="form-control" rows="3"></textarea>
-		</div>
+		<textarea class="form-control" rows="3"
+			style="padding-top: 5%; margin-top: 2%"></textarea>
 	</div>
 
 	<h2>게시글 목록</h2>
